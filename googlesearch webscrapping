@@ -1,0 +1,10 @@
+ pip install requests
+! pip install beautifulsoup4
+import requests
+from bs4 import BeautifulSoup
+url = 'https://www.google.com/search?q=google+search+console&rlz=1C1AVFC_enIN923IN924&oq=google+sea&aqs=chrome.1.0i131i433i457j0l2j69i57j0i433l2j69i60l2.5889j0j7&sourceid=chrome&ie=UTF-8'
+req = requests.get(url)
+soup = BeautifulSoup(req.content,'html.parser')
+print(soup)
+for i in soup.find_all("div"):
+  print(i.text)
